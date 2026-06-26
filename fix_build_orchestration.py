@@ -170,7 +170,7 @@ new_sanitize = '''function sanitizeGeneratedFiles(projectDir: string) {
   }
 }'''
 
-gen_content = re.sub(old_sanitize, new_sanitize, gen_content, count=1)
+gen_content = re.sub(old_sanitize, lambda m: new_sanitize, gen_content, count=1)
 
 with open(generate_path, "w") as f:
     f.write(gen_content)
